@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import GatsbyImage from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
 import { Link } from 'gatsby'
 import { mq, theme } from './globals'
@@ -63,17 +64,8 @@ export const Text = styled.p`
 	padding: 0;
 `
 export const Container = styled.div`
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
-	margin-bottom: 1rem;
-	${mq[1]} {
-		width: 90%;
-		margin-bottom: 1rem;
-	}
-	${mq[2]} {
-		width: 80%;
-		margin-bottom: 1rem;
-	}
 `
 
 export const BackgroundTitle = styled.div`
@@ -177,4 +169,13 @@ export const Portfolio = styled.div`
 			font-size: 1.25rem;
 		}
 	} */
+`
+
+export const StyledImage = styled(GatsbyImage)`
+margin-bottom:1rem;
+border-radius:3px;
+flex:0 1 100%;
+${mq[2]}{
+flex:0 0 50%;
+}
 `

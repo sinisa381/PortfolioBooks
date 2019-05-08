@@ -1,14 +1,13 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-
-import Image from 'gatsby-image'
+import { StyledImage } from '../shared'
 
 export default () => {
 	const Book = useStaticQuery(graphql`
 		query {
 			file(relativePath: { eq: "book2.jpg" }) {
 				childImageSharp {
-					fluid(maxWidth: 1200) {
+					fluid(maxWidth: 1200, maxHeight: 550) {
 						...GatsbyImageSharpFluid
 					}
 				}
@@ -16,5 +15,5 @@ export default () => {
 		}
 	`)
 
-	return <Image fluid={Book.file.childImageSharp.fluid} className='composition__photo composition__photo--p2' />
+	return <StyledImage fluid={Book.file.childImageSharp.fluid} />
 }

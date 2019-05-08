@@ -42,9 +42,9 @@ const Header = ({ site, location }) => {
 						{/* <span className='heading-primary--main'>Reading</span> */}
 						<TextShadow className='heading-primary--sub'>Makes your life better</TextShadow>
 					</h1>
-					<a href='#main' className='btn btn--white btn--animated'>
+					<Btn href='#main' className='btn btn--white btn--animated'>
 						Click to see more
-					</a>
+					</Btn>
 				</div>
 			</StyledBackground>
 		</React.Fragment>
@@ -62,7 +62,7 @@ Header.defaultProps = {
 export default Header
 const StyledBackground = styled(BackgroundImage)`
 	height: 95vh;
-	background-image: linear-gradient(to right, rgba(255, 237, 120, 0), rgba(0, 0, 0, 0.2));
+	background-image: linear-gradient(to right, rgba(#ffed78), rgba(0, 0, 0, 0.2));
 	background-size: cover;
 	background-position: center;
 	position: relative;
@@ -78,3 +78,4 @@ const TextShadow = styled.span`
 		font-size: 4rem;
 	}
 `
+const Btn = styled.a`font-weight: bold;`
