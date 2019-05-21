@@ -2,18 +2,16 @@ import React, { useState } from 'react'
 import { Link, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { FaBars } from 'react-icons/fa'
-// import { css } from '@emotion/core'
-import SideNav from './sidenav'
-import { FlexBox, NavItem } from './shared'
+import { SpringButton, SpringTitle } from '../components/springs'
 import BackgroundImage from 'gatsby-background-image'
+// import Blurbook from '../components/hooks/background'
 import { useStaticQuery } from 'gatsby'
 import { mq } from './globals'
 
 const Header = ({ site, location }) => {
 	const data = useStaticQuery(graphql`
 		query {
-			book: file(relativePath: { eq: "book5.jpg" }) {
+			book: file(relativePath: { eq: "adventure-clouds.jpg" }) {
 				childImageSharp {
 					fluid(maxWidth: 1200) {
 						...GatsbyImageSharpFluid
@@ -32,19 +30,14 @@ const Header = ({ site, location }) => {
 			}
 		}
 	`)
-	const navigationItems = color => <React.Fragment />
 
 	return (
 		<React.Fragment>
-			<StyledBackground fluid={data.book.childImageSharp.fluid} className='header'>
+			<StyledBackground fluid={data.book.childImageSharp.fluid}>
 				<div className='header__text-box'>
 					<h1 className='heading-primary'>
-						{/* <span className='heading-primary--main'>Reading</span> */}
-						<TextShadow className='heading-primary--sub'>Makes your life better</TextShadow>
+						<SpringTitle>landing page</SpringTitle>
 					</h1>
-					<Btn href='#main' className='btn btn--white btn--animated'>
-						Click to see more
-					</Btn>
 				</div>
 			</StyledBackground>
 		</React.Fragment>
@@ -61,21 +54,13 @@ Header.defaultProps = {
 
 export default Header
 const StyledBackground = styled(BackgroundImage)`
-	height: 95vh;
-	background-image: linear-gradient(to right, rgba(#ffed78), rgba(0, 0, 0, 0.2));
+	height: 65vh;
+  clip-path: polygon(0 0, 100% 0, 100% 55vh, 0 100%);
 	background-size: cover;
 	background-position: center;
-	position: relative;
+  position: relative;
+  ${mq[2]}{
+	height: 95vh;
 	clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+  }
 `
-const TextShadow = styled.span`
-	text-shadow: 1px 1px 1px #000;
-	font-size: 2rem;
-	${mq[1]} {
-		font-size: 3rem;
-	}
-	${mq[2]} {
-		font-size: 4rem;
-	}
-`
-const Btn = styled.a`font-weight: bold;`
