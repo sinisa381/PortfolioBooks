@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { WaveWrapper, InnerWave } from '../components/wave'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons.cjs'
 import { mq } from '../components/globals'
 import Header from '../components/header'
@@ -52,7 +53,35 @@ class Page extends React.Component {
 					</div>
 				</ParallaxLayer>
 				<ParallaxLayer offset={2} speed={1}>
-					<Page2>I'm going in the other direction!</Page2>
+					<Page2>
+						<AboutMeContainer>
+							<Circle />
+							<AboutMeContent>
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi iste est omnis odio
+								consectetur nihil ipsam at, harum architecto veritatis temporibus accusantium aliquam
+								eaque molestiae.
+							</AboutMeContent>
+						</AboutMeContainer>
+						<WaveWrapper>
+							<InnerWave>
+								<svg
+									xmlns='http://www.w3.org/2000/svg'
+									viewBox='0 0 800 338.05'
+									preserveAspectRatio='none'
+								>
+									<path>
+										<animate
+											attributeName='d'
+											values='M 0 100 Q 250 50 400 200 Q 550 350 800 300 L 800 0 L 0 0 L 0 100 Z;M 0 100 Q 200 150 400 200 Q 600 250 800 300 L 800 0 L 0 0 L 0 100 Z;M 0 100 Q 150 350 400 200 Q 650 50 800 300 L 800 0 L 0 0 L 0 100 Z'
+											repeatCount='indefinite'
+											dur='30s'
+										/>
+									</path>
+								</svg>
+							</InnerWave>
+						</WaveWrapper>
+					</Page2>
+					<Copyrights>All content &copy; Sinisa Colic sinisa820@gmail.com</Copyrights>
 				</ParallaxLayer>
 				<ParallaxLayer offset={1} speed={1.2}>
 					<div style={{ height: '20%', width: '10%', marginLeft: '90%' }}>asdasdasdsdt!</div>
@@ -165,4 +194,35 @@ const Displaynone = styled.div`
 	${mq[1]} {
 		display: none;
 	}
+`
+const Circle = styled.div`
+	border-radius: 100%;
+	background-color: #fff;
+	width: 20rem;
+	height: 20rem;
+	position: relative;
+	z-index: 1000;
+`
+const AboutMeContent = styled.p`
+	color: #fff;
+	font-size: 3rem;
+	max-width: 46ch;
+	position: relative;
+	z-index: 1000;
+`
+const AboutMeContainer = styled.div`
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	color: white;
+	margin-top: 30vh;
+`
+const Copyrights = styled.p`
+	position: absolute;
+	bottom: 0;
+	z-index: 1000;
+	color: #e2e2e2;
+	left: 50%;
+	padding: 1rem;
+	transform: translateX(-50%);
 `

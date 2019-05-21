@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { FlexBox } from '../components/shared'
-import { waveAnimation } from './wave'
+import { waveAnimation } from './wave/animation'
 import { mq } from './globals'
 // import { Flip } from 'react-reveal/'
 import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs'
