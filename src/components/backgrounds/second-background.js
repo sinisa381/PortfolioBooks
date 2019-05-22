@@ -1,13 +1,13 @@
 import React from 'react'
-import Image from 'gatsby-image'
+import { StyledImage } from './index'
 import { useStaticQuery, graphql } from 'gatsby'
 
 export const Imageus = () => {
 	const bck = useStaticQuery(graphql`
 		query {
-			desktop: file(relativePath: { eq: "adventure-altitude.jpg" }) {
+			desktop: file(relativePath: { eq: "asphalt.jpg" }) {
 				childImageSharp {
-					fluid(maxWidth: 1000, maxHeight: 1000) {
+					fluid(maxWidth: 2000, maxHeight: 2000) {
 						...GatsbyImageSharpFluid_withWebp
 					}
 				}
@@ -15,7 +15,7 @@ export const Imageus = () => {
 		}
 	`)
 
-	return <Image fluid={bck.desktop.childImageSharp.fluid} />
+	return <StyledImage fluid={bck.desktop.childImageSharp.fluid} />
 }
 
 export default Imageus

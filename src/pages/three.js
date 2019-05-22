@@ -1,18 +1,22 @@
 import React from 'react'
+import { FiZap, FiCloudSnow, FiFlag } from 'react-icons/fi'
+import Avatar from '../components/hooks/avatar'
 import styled from '@emotion/styled'
 import { WaveWrapper, InnerWave } from '../components/wave'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons.cjs'
 import { mq } from '../components/globals'
 import Header from '../components/header'
 import Awesome from '../components/awesome'
-import Bck from '../components/second-background'
-import Bck2 from '../components/third-background'
+import Card from '../components/card'
+import Bck from '../components/backgrounds/second-background'
+import Bck2 from '../components/backgrounds/third-background'
+import Bck3 from '../components/backgrounds/fourth-background'
 import '../components/style.css'
 class Page extends React.Component {
 	render() {
 		return (
-			<Parallax pages={3} ref={ref => (this.parallax = ref)}>
-				<ParallaxLayer offset={0} speed={0} factor={3}>
+			<Parallax pages={4} ref={ref => (this.parallax = ref)}>
+				<ParallaxLayer offset={0} speed={0} factor={4}>
 					<div
 						className='pattern'
 						style={{
@@ -30,32 +34,44 @@ class Page extends React.Component {
 								margin: '0 auto'
 							}}
 						>
-							<Heading>
-								<p>
-									Lorem ipsum dolor sit amet consectetur. sit amet consectetur adipisicing elit.
-									Distinctio, unde!{' '}
-								</p>
-							</Heading>
 							<Line />
 						</div>
-						<Awesome />
+						<Media>
+							<Awesome />
+						</Media>
 					</div>
 				</ParallaxLayer>
 
 				<ParallaxLayer offset={1} speed={1.1}>
-					<div style={{ backgroundColor: '#253237', height: '100%', width: '100%' }}>
-						<div style={{ width: '100%' }}>
+					<div style={{ backgroundColor: '#253237', height: 'auto', width: '100%' }}>
+						<Gallery style={{ width: '100%' }}>
 							<Bck />
+							<Bck2 />
 							<Displaynone>
-								<Bck2 />
+								<Bck3 />
 							</Displaynone>
-						</div>
+						</Gallery>
 					</div>
 				</ParallaxLayer>
-				<ParallaxLayer offset={2} speed={1}>
+				<ParallaxLayer offset={2.7} speed={1}>
+					<Cards>
+						<Card color='#fff' size='5rem'>
+							<FiZap />
+						</Card>
+						<Card color='#fff' size='5rem'>
+							<FiCloudSnow />
+						</Card>
+						<Card color='#fff' size='5rem'>
+							<FiFlag />
+						</Card>
+					</Cards>
+				</ParallaxLayer>
+				<ParallaxLayer offset={3} speed={1}>
 					<Page2>
 						<AboutMeContainer>
-							<Circle />
+							<Circle>
+								<Avatar />
+							</Circle>
 							<AboutMeContent>
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi iste est omnis odio
 								consectetur nihil ipsam at, harum architecto veritatis temporibus accusantium aliquam
@@ -83,38 +99,13 @@ class Page extends React.Component {
 					</Page2>
 					<Copyrights>All content &copy; Sinisa Colic sinisa820@gmail.com</Copyrights>
 				</ParallaxLayer>
-				<ParallaxLayer offset={1} speed={1.2}>
-					<div style={{ height: '20%', width: '10%', marginLeft: '90%' }}>asdasdasdsdt!</div>
-				</ParallaxLayer>
-				<ParallaxLayer offset={1} speed={1.9}>
-					<div style={{ height: '20%', width: '30%', marginLeft: '65%' }}>asdasdt!</div>
-				</ParallaxLayer>
 
-				<ParallaxLayer offset={1} speed={1}>
-					<Grid>
-						{/* <img src={Img} style={{ width: '100%', maxHeight: '100%', display: 'block' }} /> */}
-					</Grid>
-				</ParallaxLayer>
-				<ParallaxLayer offset={1} speed={1.1}>
-					<div style={{ height: '20%', width: '30%', color: 'white', marginLeft: '5%' }}>first</div>
-				</ParallaxLayer>
-				<ParallaxLayer offset={1.2} speed={1.3}>
-					<div style={{ height: '20%', width: '30%', color: 'white' }}>second</div>
-				</ParallaxLayer>
-				<ParallaxLayer offset={1.4} speed={1.5}>
-					<div style={{ height: '20%', width: '30%', color: 'blue' }}>third</div>
-				</ParallaxLayer>
-				<ParallaxLayer offset={1.6} speed={1.7}>
-					<div style={{ height: '20%', width: '30%', color: 'blue' }}>fourth!</div>
-				</ParallaxLayer>
-				<ParallaxLayer offset={1.8} speed={1.9}>
-					<div style={{ height: '20%', width: '30%', color: 'blue', marginLeft: '5%' }}>fifth</div>
-				</ParallaxLayer>
-				<ParallaxLayer offset={1.8} speed={1.9}>
-					<div style={{ height: '20%', width: '30%', color: 'blue', marginLeft: '70%' }}>fifth right</div>
-				</ParallaxLayer>
-				<ParallaxLayer offset={1.32} speed={-0.3}>
-					<ScrollHeading>Animi ipsum, possimus obcaecati voluptate debitis! Aliquid, laborum!</ScrollHeading>
+				<ParallaxLayer offset={1.2} speed={-0.65}>
+					<Mt>
+						<ScrollHeading>
+							Animi ipsum, possimus obcaecati voluptate debitis! Aliquid, laborum!
+						</ScrollHeading>
+					</Mt>
 				</ParallaxLayer>
 
 				{/* <ParallaxLayer offset={1} speed={1}>
@@ -177,17 +168,6 @@ const Heading = styled.h1`
 		}
 	}
 `
-const Text = styled.p`
-	color: yellow;
-	font-size: 1rem;
-	margin-top: 90vh;
-	${mq[1]} {
-		margin-top: 90vh;
-		display: none;
-	}
-	padding: 0rem 4rem;
-	padding-top: 20v;
-`
 const Page2 = styled.div`height: 100%;`
 const Displaynone = styled.div`
 	display: block;
@@ -198,24 +178,42 @@ const Displaynone = styled.div`
 const Circle = styled.div`
 	border-radius: 100%;
 	background-color: #fff;
-	width: 20rem;
-	height: 20rem;
+	width: 13rem;
+	height: 13rem;
 	position: relative;
 	z-index: 1000;
+	margin-bottom: 2rem;
+	${mq[2]} {
+		width: 17rem;
+		height: 17rem;
+	}
 `
 const AboutMeContent = styled.p`
 	color: #fff;
-	font-size: 3rem;
-	max-width: 46ch;
+	font-size: 1.5rem;
+	max-width: 30ch;
 	position: relative;
 	z-index: 1000;
+	text-align: center;
+	${mq[2]} {
+		text-align: start;
+		font-size: 2.5rem;
+		max-width: 46ch;
+	}
 `
 const AboutMeContainer = styled.div`
 	display: flex;
-	justify-content: space-around;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 	color: white;
-	margin-top: 30vh;
+	margin-top: 10vh;
+	${mq[2]} {
+		flex-direction: row;
+		margin-top: 30vh;
+		justify-content: space-around;
+		align-items: center;
+	}
 `
 const Copyrights = styled.p`
 	position: absolute;
@@ -225,4 +223,43 @@ const Copyrights = styled.p`
 	left: 50%;
 	padding: 1rem;
 	transform: translateX(-50%);
+`
+const Mt = styled.div`
+	margin-top: -6rem;
+	${mq[2]} {
+		margin-top: 1.7rem;
+	}
+`
+const Gallery = styled.div`
+	display: block;
+	${mq[1]} {
+		display: flex;
+	}
+`
+const Cards = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: -10rem;
+	@media only screen and (min-width: 525px) {
+		margin-top: -5rem;
+	}
+	@media only screen and (min-width: 522px) {
+		margin-top: 6rem;
+	}
+	@media only screen and (min-width: 600px) {
+		margin-top: 9rem;
+	}
+
+	@media only screen and (min-width: 620px) {
+		margin-top: -5rem;
+	}
+`
+
+const Media = styled.div`
+	margin-top: -70vh;
+	${mq[2]} {
+		margin-top: 5rem;
+	}
 `
