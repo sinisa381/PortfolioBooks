@@ -35,7 +35,6 @@ background-position:center center;
   background-repeat: no-repeat;
   background-size:cover;
   border-radius:100%;
-  background-color: #000;
   width:100%;
   height:100%;
 	/* width: 13rem;

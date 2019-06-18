@@ -73,9 +73,8 @@ class Page extends React.Component {
 								<Avatar />
 							</Circle>
 							<AboutMeContent>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi iste est omnis odio
-								consectetur nihil ipsam at, harum architecto veritatis temporibus accusantium aliquam
-								eaque molestiae.
+								Hello, my name is Sinisa. I have good experience with React. And i love bulding
+								websites! Feel free to contact me!
 							</AboutMeContent>
 						</AboutMeContainer>
 						<WaveWrapper>
@@ -102,9 +101,7 @@ class Page extends React.Component {
 
 				<ParallaxLayer offset={1.2} speed={-0.65}>
 					<Mt>
-						<ScrollHeading>
-							Animi ipsum, possimus obcaecati voluptate debitis! Aliquid, laborum!
-						</ScrollHeading>
+						<ScrollHeading>Just keep scrolling</ScrollHeading>
 					</Mt>
 				</ParallaxLayer>
 
