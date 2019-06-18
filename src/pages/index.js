@@ -73,7 +73,7 @@ class Page extends React.Component {
 								<Avatar />
 							</Circle>
 							<AboutMeContent>
-								Hello, my name is Sinisa. I have good experience with React. And i love bulding
+								Hello, my name is Sinisa. I have a good experience with React. And I love building
 								websites! Feel free to contact me!
 							</AboutMeContent>
 						</AboutMeContainer>
